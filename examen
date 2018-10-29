@@ -1,0 +1,86 @@
+https://www.tinkercad.com/things/hTbvpitSR3P-swanky-blad-juttuli/editel
+
+int boton1 = 5;
+int boton2 = 6;
+int boton3 = 7;
+int led1 = 2;
+int led2 = 3;
+int led3 = 4;
+int estado;
+int estado2;
+int estado3;
+  
+
+void setup(){
+  Serial.begin(9600); //Inicializar puerto serie
+  pinMode(led1, OUTPUT);
+  pinMode(boton1, INPUT_PULLUP);
+  pinMode(led2, OUTPUT);
+  pinMode(boton2, INPUT_PULLUP);
+  pinMode(led3, OUTPUT);
+  pinMode(boton3, INPUT_PULLUP);
+  
+}
+
+void loop()
+{
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, HIGH);
+  digitalWrite(led3, HIGH);
+  delay(500); //Wait for 500 millisecond(s)
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+  digitalWrite(led3, LOW);
+  delay(500); //Wait for 500 millisecond(s)
+  
+
+
+  estado = digitalRead(boton1);
+  if(estado == 1){
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    delay(500); //Wait for 500 millisecond(s)
+}
+else{
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, LOW);
+  digitalWrite(led3, LOW);
+  delay(500); //Wait for 500 millsecond(s)
+}
+  
+
+  estado2 = digitalRead(boton2);
+  if(estado2 == 1){
+    digitalWrite(led2, LOW);
+    digitalWrite(led1, LOW);
+    digitalWrite(led3, LOW);
+    delay(500); //Wait for 500 millisecond(s)
+  }
+  
+  else{
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, LOW);
+    digitalWrite(led1, LOW);
+    delay(500); //Wait for 500 millisecond(s)
+  }
+  
+
+  estado3 = digitalRead(boton3);
+  if(estado3 == 1){
+    digitalWrite(led2, LOW);
+    digitalWrite(led1, LOW);
+    digitalWrite(led3, LOW);
+    delay(500); //Wait for 500 millisecond(s)
+  }
+  
+  else{
+    digitalWrite(led1, LOW); 
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, HIGH);
+    delay(500); //Wait for 500 millisecond(s)
+  }
+ 
+  
+}
+  
